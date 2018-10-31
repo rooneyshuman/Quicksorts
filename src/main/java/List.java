@@ -1,12 +1,15 @@
-public List<Interger> randomList(int n) {
-    ArrayList<Integer> list = new ArrayList<Inteeger>(n);
-    Random random = new Random();
+import java.util.Random;
 
-    for (int i = 0; i < n; ++i)
+public class List {
+    public void BackwardsList(int n){
+        int [] backwardsList = new int[n];
+        int count = n-1;
+        for (int i = 0; i < n; i++)
         {
-            list.add(random.nextInt(1000));
+           backwardsList[i]= count;
+           --count;
         }
-        return list;
+    }
 }
 
 
