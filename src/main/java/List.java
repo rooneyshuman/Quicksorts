@@ -1,52 +1,84 @@
 import java.util.*;
+import java.io.*;
+
 
 
 public class List {
-    /*
-    private int nums [];
-    private int size;
-    */
+    private ArrayList<Integer> theList;
+    int size;
+    int nums[];
 
-    public void backwardsList(int n){
-        ArrayList<Integer> backwards = new ArrayList<Integer>();
-        for (int i = 0; i < n; i++)
-        {
-            backwards.add(n-i);
-        }
-        System.out.println("Backwards List" + backwards);
+    public List(int size){
+        this.size = size;
+        this.nums = new int[size];
+        theList = new ArrayList<Integer>();
     }
 
-    public void randomList(int size){
-        ArrayList<Integer> random = new ArrayList<Integer>();
-        for (int i = 0; i < size; ++i)
-        random.add(i);
+    public void backwardsList(){
+        for (int i = 0; i < this.size; i++)
+        {
+            theList.add(this.size-i);
+        }
+    }
 
-        System.out.println("Original List: " + random);
-        Collections.shuffle(random);
-        System.out.println("Shuffled List: " + random);
+    public void randomList(){
+        for (int i = 0; i < this.size; ++i)
+        theList.add(i);
+
+        Collections.shuffle(theList);
     }
 
     //This will not fill the list to the exact size of the list but to sizeParts *n < sizeList  TODO: Can be changed
-    public void almostSort(int sizeList, int sizeParts){
-        ArrayList<Integer> almostSort = new ArrayList<Integer>();
+    public void almostSort(int sizeParts){
         int whereAt = 0;
 
-        while (sizeList > sizeParts) {
+        while (this.size > whereAt) {
             ArrayList<Integer> toAdd = new ArrayList<Integer>();
 
             for (int i = whereAt; i < whereAt + sizeParts; ++i) {
                 toAdd.add(i);
             }
 
-            System.out.println("Original List: " + toAdd);
             Collections.shuffle(toAdd);
-            System.out.println("Original List: " + toAdd);
-            almostSort.addAll(toAdd);
+            theList.addAll(toAdd);
             whereAt +=sizeParts;
-            System.out.println("Original List: " + almostSort);
-
         }
     }
+
+    public void loadList(String fileName){
+        try {
+            FileInputStream fis = new FileInputStream(fileName);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            theList = (ArrayList) ois.readObject();
+            ois.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Integer[] convertToArray(){
+        Integer toSort[] = new Integer[theList.size()];
+        return theList.toArray(toSort);
+    }
+
+    public void saveList(String fileName){
+        try {
+        FileOutputStream fos = new FileOutputStream(fileName);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(theList);
+        oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    void display() {
+        System.out.println("List: " + theList);
+    }
+
 
 /*
   public List(int size){
@@ -68,12 +100,6 @@ public class List {
     }
   }
 
-  void display() {
-    for (int j = 0; j < nums.length; ++j)
-      System.out.print(nums[j] + " ");
-
-    System.out.print("\n");
-  }
   */
 }
 

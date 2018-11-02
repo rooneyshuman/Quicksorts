@@ -5,13 +5,31 @@ public class Quicksort {
 
     int listSize = 20;
 
+    List backList = new List(listSize);
+    backList.backwardsList();
+    backList.display();
+
+    backList.saveList("backwardsArray.data");
+
+    List testList = new List(listSize);
+    testList.loadList("backwardsArray.data");
+    testList.display();
+
+    Integer[] myArray = testList.convertToArray();
+
+
+
     List randomList = new List(listSize);
-    randomList.generateRandom();
+    randomList.randomList();
     randomList.display();
 
+    List almostList = new List(listSize);
+    almostList.almostSort(4);
+    almostList.display();
+
     List reverseList = new List(listSize);
-    reverseList.generateReverse();
-    reverseList.display();
+    //reverseList.generateReverse();
+    //reverseList.display();
 
   }
 }
