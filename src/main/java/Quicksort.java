@@ -1,7 +1,6 @@
-
 public class Quicksort {
 
-  public static void main(String [] args) {
+  public static void main(String[] args) {
 
     int listSize = 20;
 
@@ -18,7 +17,6 @@ public class Quicksort {
     Integer[] myArray = testList.convertToArray();
 
 
-
     List randomList = new List(listSize);
     randomList.randomList();
     randomList.display();
@@ -26,10 +24,6 @@ public class Quicksort {
     List almostList = new List(listSize);
     almostList.almostSort(4);
     almostList.display();
-
-    List reverseList = new List(listSize);
-    //reverseList.generateReverse();
-    //reverseList.display();
 
   }
 }
