@@ -1,29 +1,13 @@
+// Belén
 public class Quicksort {
+  private List list;
 
-  public static void main(String[] args) {
-
-    int listSize = 20;
-
-    List backList = new List(listSize);
-    backList.backwardsList();
-    backList.display();
-
-    backList.saveList("backwardsArray.data");
-
-    List testList = new List(listSize);
-    testList.loadList("backwardsArray.data");
-    testList.display();
-
-    Integer[] myArray = testList.convertToArray();
-
-
-    List randomList = new List(listSize);
-    randomList.randomList();
-    randomList.display();
-
-    List almostList = new List(listSize);
-    almostList.almostSort(4);
-    almostList.display();
-
+  Quicksort(List toSort) {
+    list = toSort;
   }
+
+  // Belén
+  public void sortList() {
+  }
+
 }
