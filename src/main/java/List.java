@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class List {
-  private ArrayList<Integer> theList;
+  public ArrayList<Integer> theList;
   private int size;
 
   public List(int size) {
