@@ -5,38 +5,38 @@ public class List {
   private ArrayList<Integer> theList;
   private int size;
 
-  public List(int size) {
+  List(int size) {
     this.size = size;
     theList = new ArrayList<>();
   }
 
-  public int getVal(int index) {
+  int getVal(int index) {
     return theList.get(index);
   }
 
-  public int getSize() {
+  int getSize() {
     return size;
   }
 
-  public void setVal(int index, int newVal) {
+  void setVal(int index, int newVal) {
     theList.set(index, newVal);
   }
 
-  public void backwardsList() {
+  void backwardsList() {
     for (int i = 0; i < this.size; i++) {
       theList.add(this.size - i);
     }
   }
 
-  public void randomList() {
-    for (int i = 0; i < this.size; ++i)
+  void randomList() {
+    for (int i = 1; i < this.size + 1; ++i)
       theList.add(i);
 
     Collections.shuffle(theList);
   }
 
   //This will not fill the list to the exact size of the list but to sizeParts *n < sizeList  TODO: Can be changed
-  public void almostSort(int sizeParts) {
+  void almostSort(int sizeParts) {
     int whereAt = 1;
 
     while (this.size > whereAt) {
