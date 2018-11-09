@@ -3,8 +3,8 @@ public class QuickInsert extends QuickAbstract {
 
   public void sort(List list, int firstIndex, int lastIndex) {
     if(firstIndex < lastIndex) {
-      if((lastIndex - firstIndex) < 5)
-        insertionSort();    // Run insertion
+      if((lastIndex - firstIndex) < 5)//TODO: make this constant a global or pass in argument
+        insertionSort(list, firstIndex, lastIndex + 1);    // Run insertion TODO: do i need to do a +s?
       else {
         int partIndex = partition(list, firstIndex, lastIndex);
         sort(list, firstIndex, partIndex - 1);
@@ -13,7 +13,34 @@ public class QuickInsert extends QuickAbstract {
     }
   }
 
-  private void insertionSort(){
-    // TO IMPLEMENT
+  private void insertionSort(List list, int firstIndex, int lastIndex){
+    for (int x = firstIndex +1; x < lastIndex; ++x){
+      int value = list.getVal(x);
+      int j = x-1;
+      while (j >= 0 && value < list.getVal(j)){
+        list.setVal(j + 1, j);
+        --j;
+      }
+      list.setVal(j + 1, value);
+    }
   }
+
+  int partition(List list, int leftIndex, int rightIndex){
+  int left = leftIndex;
+  int right = rightIndex;
+  int pivot = list.getVal(leftIndex);
+  while (left < right){
+    if (list.getVal(left) < pivot){
+      ++left;
+    }
+    if (list.getVal(right) > pivot) {
+      --right;
+    }
+    int temp = list.getVal(left);
+    list.setVal(left, right);
+    list.setVal(right, temp);
+    ++left;
+  }
+  return left;
+}
 }
