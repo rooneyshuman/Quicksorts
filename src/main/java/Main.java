@@ -22,7 +22,7 @@ public class Main {
     System.out.println("Random List - Unsorted");
     randomList.display();
     insert.sort(randomList,0, randomList.getSize() - 1);
-    System.out.println("Random List - Sorted");
+    System.out.println("Insert Random List - Sorted");
     randomList.display();
     System.out.println();
 
@@ -32,7 +32,7 @@ public class Main {
     System.out.println("Almost Sorted List - Unsorted");
     almostList.display();
     insert.sort(almostList, 0, almostList.getSize() - 1);
-    System.out.println("Almost Sorted List - Sorted");
+    System.out.println("Insert Almost Sorted List - Sorted");
     almostList.display();
     System.out.println();
 
