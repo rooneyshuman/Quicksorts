@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class Main {
 
   public static void main(String[] args) {
@@ -5,14 +7,21 @@ public class Main {
     int listSize = 20;
     Quicksort quick = new Quicksort();
     QuickInsert insert = new QuickInsert();
+    Date date = new Date();
 
     // Backwards list sorted with regular quicksort
     List backList = new List(listSize);
     backList.backwardsList();         //generate backwards list
     System.out.println("Backwards List - Unsorted");
     backList.display();
+
+    long start = date.getTime();
     quick.sort(backList,0, backList.getSize() - 1);
+    long end = date.getTime();
     System.out.println("Backwards List - Sorted");
+    System.out.println("Backwards List end - start");
+    long total = end - start;
+    System.out.println(total);
     backList.display();
     System.out.println();
 
