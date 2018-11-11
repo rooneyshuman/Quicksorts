@@ -15,14 +15,14 @@ public class Main {
     System.out.println("Backwards List - Unsorted");
     backList.display();
 
-    long start = date.getTime();
+    final long startTime = System.nanoTime();
     quick.sort(backList,0, backList.getSize() - 1);
-    long end = date.getTime();
+    final long endTime = System.nanoTime();
     System.out.println("Backwards List - Sorted");
-    System.out.println("Backwards List end - start");
-    long total = end - start;
-    System.out.println(total);
     backList.display();
+    System.out.print("Sorting time: ");
+    long totalTime = endTime - startTime;
+    System.out.println(totalTime);
     System.out.println();
 
     // Random list sorted with quickinsert
