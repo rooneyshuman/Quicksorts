@@ -23,7 +23,7 @@ public class List {
   }
 
   void backwardsList() {
-    for (int i = 0; i < this.size; i++) {
+    for (int i = 0; i < this.size; ++i) {
       theList.add(this.size - i);
     }
   }
@@ -31,6 +31,16 @@ public class List {
   void randomList() {
     for (int i = 1; i < this.size + 1; ++i)
       theList.add(i);
+
+    Collections.shuffle(theList);
+  }
+
+  void multiList(int multiNum) {//multiNum is the number of repeats expected.
+    for (int i = 1; i < this.size + 1; ++i) {
+      for (int j = 0; j < multiNum; ++j){
+        theList.add(i);
+      }
+    }
 
     Collections.shuffle(theList);
   }

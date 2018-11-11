@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class Main {
 
   public static void main(String[] args) {
@@ -5,15 +7,22 @@ public class Main {
     int listSize = 20;
     Quicksort quick = new Quicksort();
     QuickInsert insert = new QuickInsert();
+    Date date = new Date();
 
     // Backwards list sorted with regular quicksort
     List backList = new List(listSize);
     backList.backwardsList();         //generate backwards list
     System.out.println("Backwards List - Unsorted");
     backList.display();
+
+    final long startTime = System.nanoTime();
     quick.sort(backList,0, backList.getSize() - 1);
+    final long endTime = System.nanoTime();
     System.out.println("Backwards List - Sorted");
     backList.display();
+    System.out.print("Sorting time: ");
+    long totalTime = endTime - startTime;
+    System.out.println(totalTime);
     System.out.println();
 
     // Random list sorted with quickinsert
@@ -22,7 +31,7 @@ public class Main {
     System.out.println("Random List - Unsorted");
     randomList.display();
     insert.sort(randomList,0, randomList.getSize() - 1);
-    System.out.println("Random List - Sorted");
+    System.out.println("Insert Random List - Sorted");
     randomList.display();
     System.out.println();
 
@@ -32,7 +41,7 @@ public class Main {
     System.out.println("Almost Sorted List - Unsorted");
     almostList.display();
     insert.sort(almostList, 0, almostList.getSize() - 1);
-    System.out.println("Almost Sorted List - Sorted");
+    System.out.println("Insert Almost Sorted List - Sorted");
     almostList.display();
     System.out.println();
 
