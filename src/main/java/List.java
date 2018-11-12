@@ -26,6 +26,10 @@ public class List {
         for (int i = 0; i < this.size; i++) {
             theList.add(this.size - i);
         }
+  
+  void backwardsList() {
+    for (int i = 0; i < this.size; ++i) {
+      theList.add(this.size - i);
     }
 
     void randomList() {
@@ -38,7 +42,7 @@ public class List {
     //This will not fill the list to the exact size of the list but to sizeParts *n < sizeList  TODO: Can be changed
     void almostSort(int sizeParts) {
         int whereAt = 1;
-
+      
         while (this.size > whereAt) {
             ArrayList<Integer> toAdd = new ArrayList<>();
 
@@ -51,7 +55,16 @@ public class List {
             whereAt += sizeParts;
         }
     }
-
+      
+  void multiList(int multiNum) {//multiNum is the number of repeats expected.
+    for (int i = 1; i < this.size + 1; ++i) {
+      for (int j = 0; j < multiNum; ++j){
+        theList.add(i);
+      }
+    }
+    Collections.shuffle(theList);
+  }
+      
     public void loadList(String fileName) {
         try {
             FileInputStream fis = new FileInputStream(fileName);
