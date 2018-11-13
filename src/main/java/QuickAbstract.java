@@ -21,5 +21,16 @@ public abstract class QuickAbstract {
     return i + 1;
   }
 
+  public void insertionSort(List list, int firstIndex, int lastIndex){
+    for (int x = firstIndex +1; x < lastIndex; ++x){
+      int value = list.getVal(x);
+      int j = x-1;
+      while (j >= 0 && value < list.getVal(j)){
+        list.setVal(j + 1, list.getVal(j));
+        --j;
+      }
+      list.setVal(j + 1, value);
+    }
+  }
   public abstract void sort(List list, int first, int last);
 }
