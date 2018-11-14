@@ -3,9 +3,6 @@ public class Quick3 extends QuickAbstract {
   public void sort(List list, int lp, int hp) {
     if (hp <= lp)
       return;
-    if (hp - lp < 5) {
-      insertionSort(list, lp, hp + 1);    // Run insertion TODO: do i need to do a +s?
-    } else {
       int lowPivot = list.getVal(lp);
       int highPivot = list.getVal(hp);
 
@@ -37,7 +34,6 @@ public class Quick3 extends QuickAbstract {
         sort(list, lessTerm + 1, greaterTerm - 1);
       sort(list, greaterTerm + 1, hp);
     }
-  }
 
   //This function swaps two values in a list
   public void swap(List list, int i, int j) {
