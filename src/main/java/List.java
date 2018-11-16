@@ -36,7 +36,7 @@ public class List {
   }
 
   //This will not fill the list to the exact size of the list but to sizeParts *n < sizeList  TODO: Can be changed
-  void almostSort(int sizeParts) {
+  void almostSort1(int sizeParts) {
     int whereAt = 1;
 
     while (this.size > whereAt) {
@@ -51,6 +51,29 @@ public class List {
       whereAt += sizeParts;
     }
   }
+
+  // Almost sorted except for 5 swapped items
+  void almostSort2() {
+    for (int i = 1; i < this.size + 1; ++i)
+        theList.add(i);
+
+    int index1, index2, temp;
+    Random rn = new Random();
+
+    for (int j = 0; j < 5; ++j){
+      // Randomize indices of items to swap
+      index1 = rn.nextInt(size-1);
+      System.out.println("I1: " + index1);
+      index2 = rn.nextInt(size-1);
+      System.out.println("I2: " + index2);
+      // Swap items
+      temp = theList.get(index1);
+      theList.set(index1,theList.get(index2));
+      theList.set(index2,temp);
+    }
+  }
+
+
 
   void multiList(int multiNum) {//multiNum is the number of repeats expected.
     for (int i = 1; i < this.size + 1; ++i) {
