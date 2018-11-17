@@ -9,6 +9,11 @@ public class Main {
     long startTime, endTime, totalTime;
     Timer timer = new Timer();
 
+    List almost2 = new List(listSize);
+    almost2.almostSort2();
+    almost2.display();
+
+/*
     // Backwards list sorted with regular quicksort
     List backList = new List(listSize);
     backList.backwardsList();         //generate backwards list
@@ -41,7 +46,7 @@ public class Main {
 
     // Almost sorted list sorted with quickInsert
     List almostList = new List(listSize);
-    almostList.almostSort(4);       //generate almost sorted list
+    almostList.almostSort1(4);       //generate almost sorted list
     System.out.println("Almost Sorted List - Unsorted");
     almostList.display();
     timer.start();
@@ -77,7 +82,7 @@ public class Main {
     testList.display();
 
     Integer[] myArray = testList.convertToArray();
-
+*/
 /*
     List randomList = new List(listSize);
     randomList.randomList();
