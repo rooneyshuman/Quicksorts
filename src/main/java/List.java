@@ -139,6 +139,13 @@ public class List {
     backList_100k.display();
     backList_100k.saveList("backList_100k.data");
 
+    // Backlist 1m
+    listSize *= 10;
+    List backList_1m = new List(listSize);
+    backList_1m.backwardsList();
+    backList_1m.display();
+    backList_1m.saveList("backList_1m.data");
+
 
     /* RANDOM GENERATIONS */
 
@@ -162,6 +169,13 @@ public class List {
     random_100k.randomList();
     random_100k.display();
     random_100k.saveList("random_100k.data");
+
+    // Random 1m
+    listSize *= 10;
+    List random_1m = new List(listSize);
+    random_1m.randomList();
+    random_1m.display();
+    random_1m.saveList("random_1m.data");
 
 
     /* ALMOST SORT 1 GENERATIONS */
@@ -187,8 +201,16 @@ public class List {
     almostSort1_100k.display();
     almostSort1_100k.saveList("almostSort1_100k.data");
 
+    // AlmostSort1 1m
+    listSize *= 10;
+    List almostSort1_1m = new List(listSize);
+    almostSort1_1m.almostSort1(4);
+    almostSort1_1m.display();
+    almostSort1_1m.saveList("almostSort1_1m.data");
+
 
     /* ALMOST SORT 2 GENERATIONS */
+
     // AlmostSort2 1k
     listSize = 1000;
     List almostSort2_1k = new List(listSize);
@@ -209,6 +231,13 @@ public class List {
     almostSort2_100k.almostSort2();
     almostSort2_100k.display();
     almostSort2_100k.saveList("almostSort2_100k.data");
+
+    // AlmostSort2 1m
+    listSize *= 10;
+    List almostSort2_1m = new List(listSize);
+    almostSort2_1m.almostSort2();
+    almostSort2_1m.display();
+    almostSort2_1m.saveList("almostSort2_1m.data");
   }
 }
 
