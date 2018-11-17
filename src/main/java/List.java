@@ -14,8 +14,8 @@ public class List {
     return theList.get(index);
   }
 
-  int getSize() {
-    return size;
+  ArrayList<Integer> getList () {
+    return theList;
   }
 
   void setVal(int index, int newVal) {
@@ -55,22 +55,21 @@ public class List {
   // Almost sorted except for 5 swapped items
   void almostSort2() {
     for (int i = 1; i < this.size + 1; ++i)
-        theList.add(i);
+      theList.add(i);
 
     int index1, index2, temp;
     Random rn = new Random();
 
-    for (int j = 0; j < 5; ++j){
+    for (int j = 0; j < 5; ++j) {
       // Randomize indices of items to swap
-      index1 = rn.nextInt(size-1);
-      index2 = rn.nextInt(size-1);
+      index1 = rn.nextInt(size - 1);
+      index2 = rn.nextInt(size - 1);
       // Swap items
       temp = theList.get(index1);
-      theList.set(index1,theList.get(index2));
-      theList.set(index2,temp);
+      theList.set(index1, theList.get(index2));
+      theList.set(index2, temp);
     }
   }
-
 
 
   void multiList(int multiNum) {//multiNum is the number of repeats expected.
