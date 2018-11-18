@@ -34,13 +34,6 @@ public abstract class QuickAbstract {
     }
   }
 
-  // Used by Quick3 and Quick3Insert
-  public void swap(List list, int i, int j) {
-    int temp = list.getVal(i);
-    list.setVal(i, list.getVal(j));
-    list.setVal(j, temp);
-  }
-
   // Implemented by all derived classes
   public abstract void sort(List list, int first, int last);
 }
