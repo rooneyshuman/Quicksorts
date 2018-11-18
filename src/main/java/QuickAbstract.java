@@ -1,5 +1,6 @@
 public abstract class QuickAbstract {
 
+  // Used by QuickInsert, Quicksort
   int partition(List list, int firstIndex, int lastIndex) {
     int pivot = list.getVal(lastIndex);
     int i = (firstIndex - 1);
@@ -17,20 +18,29 @@ public abstract class QuickAbstract {
     list.setVal(i + 1, list.getVal(lastIndex));
     list.setVal(lastIndex, temp);
 
-
     return i + 1;
   }
 
-  public void insertionSort(List list, int firstIndex, int lastIndex){
-    for (int x = firstIndex +1; x < lastIndex; ++x){
+  // Used by Quick3Insert and QuickInsert
+  public void insertionSort(List list, int firstIndex, int lastIndex) {
+    for (int x = firstIndex + 1; x < lastIndex; ++x) {
       int value = list.getVal(x);
-      int j = x-1;
-      while (j >= 0 && value < list.getVal(j)){
+      int j = x - 1;
+      while (j >= 0 && value < list.getVal(j)) {
         list.setVal(j + 1, list.getVal(j));
         --j;
       }
       list.setVal(j + 1, value);
     }
   }
+
+  // Used by Quick3 and Quick3Insert
+  public void swap(List list, int i, int j) {
+    int temp = list.getVal(i);
+    list.setVal(i, list.getVal(j));
+    list.setVal(j, temp);
+  }
+
+  // Implemented by all derived classes
   public abstract void sort(List list, int first, int last);
 }
