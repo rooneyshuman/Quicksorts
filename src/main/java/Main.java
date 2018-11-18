@@ -6,7 +6,6 @@ public class Main {
     Quicksort quick = new Quicksort();
     QuickInsert insert = new QuickInsert();
     Quick3 dualPivot = new Quick3();
-    long startTime, endTime, totalTime;
     Timer timer = new Timer();
 
     List almost2 = new List(listSize);
