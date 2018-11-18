@@ -17,7 +17,6 @@ public abstract class QuickAbstract {
     list.setVal(i + 1, list.getVal(lastIndex));
     list.setVal(lastIndex, temp);
 
-
     return i + 1;
   }
 

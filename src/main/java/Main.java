@@ -8,6 +8,10 @@ public class Main {
     Quick3 dualPivot = new Quick3();
     Timer timer = new Timer();
 
+
+
+
+/*
     // Backwards list sorted with regular quicksort
     List backList = new List(listSize);
     backList.backwardsList();         //generate backwards list
@@ -22,6 +26,7 @@ public class Main {
     System.out.println(timer.totalTime);
     System.out.println();
     timer.saveTime("backListQuick.txt");
+
 
     // Random list sorted with quickInsert
     List randomList = new List(listSize);
