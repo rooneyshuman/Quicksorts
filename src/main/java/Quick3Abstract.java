@@ -2,7 +2,7 @@
 import java.util.Random;
 
 public abstract class Quick3Abstract extends QuickAbstract {
-  private Random rand;
+  private Random rand = new Random();
   public void q3sort(List list, int lowIndex, int highIndex) {
     if (highIndex <= lowIndex)
       return;

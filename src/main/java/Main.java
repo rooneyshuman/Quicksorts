@@ -3,7 +3,8 @@ public class Main {
   public static void main(String[] args) {
 
     int listSize = 1000;
-    quickRunTest(listSize,"almostSort1_1k.data", 10, "almostSort1_1kOutput.txt");
+    // Name output: listType_listSize_sortType.txt
+    quickRunTest(listSize,"random_1k.data", 1000, "random_1k_quick.txt");
 
   }
   public static void quickRunTest(int size, String listFileName, int numRuns, String outputFileName) {
@@ -19,39 +20,39 @@ public class Main {
     }
   }
 
-  public static void quickInsertRunTest(String listFileName, int numRuns, String outputFileName) {
+  public static void quickInsertRunTest(int size, String listFileName, int numRuns, String outputFileName) {
     QuickInsert insert = new QuickInsert();
     Timer timer = new Timer();
     for (int i = 0; i < numRuns; ++i) {
       List test = new List(0);
       test.loadList(listFileName);
       timer.start();
-      insert.sort(test, 0, test.getSize());
+      insert.sort(test, 0, size);
       timer.stop();
       timer.saveTime(outputFileName);
     }
   }
-  public static void dualRunTest(String listFileName, int numRuns, String outputFileName) {
+  public static void dualRunTest(int size, String listFileName, int numRuns, String outputFileName) {
     Timer timer = new Timer();
     Quick3 dualPivot = new Quick3();
     for (int i = 0; i < numRuns; ++i) {
       List test = new List(0);
       test.loadList(listFileName);
       timer.start();
-      dualPivot.sort(test, 0, test.getSize());
+      dualPivot.sort(test, 0, size);
       timer.stop();
       timer.saveTime(outputFileName);
     }
   }
 
-  public static void dualInsertRunTest(String listFileName, int numRuns, String outputFileName) {
+  public static void dualInsertRunTest(int size, String listFileName, int numRuns, String outputFileName) {
     Timer timer = new Timer();
     Quick3Insert dualInsert = new Quick3Insert();
     for (int i = 0; i < numRuns; ++i) {
       List test = new List(0);
       test.loadList(listFileName);
       timer.start();
-      dualInsert.sort(test, 0, test.getSize());
+      dualInsert.sort(test, 0, size);
       timer.stop();
       timer.saveTime(outputFileName);
     }
