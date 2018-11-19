@@ -2,17 +2,18 @@
 public class Main {
   public static void main(String[] args) {
 
-    quickRunTest("almostSort1_1k.data", 10, "almostSort1_1kOutput.txt");
+    int listSize = 1000;
+    quickRunTest(listSize,"almostSort1_1k.data", 10, "almostSort1_1kOutput.txt");
 
   }
-  public static void quickRunTest(String listFileName, int numRuns, String outputFileName) {
+  public static void quickRunTest(int size, String listFileName, int numRuns, String outputFileName) {
     Timer timer = new Timer();
     Quicksort quick = new Quicksort();
     for (int i = 0; i < numRuns; ++i) {
-      List test = new List(0);
+      List test = new List(size);
       test.loadList(listFileName);
       timer.start();
-      quick.sort(test, 0, test.getSize());
+      quick.sort(test, 0, size -1);
       timer.stop();
       timer.saveTime(outputFileName);
     }
