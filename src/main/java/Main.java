@@ -2,17 +2,62 @@
 public class Main {
   public static void main(String[] args) {
 
-    int listSize = 20;
-    Quicksort quick = new Quicksort();
-    QuickInsert insert = new QuickInsert();
-    Quick3 dualPivot = new Quick3();
+    quickRunTest("almostSort1_1k.data", 10, "almostSort1_1kOutput.txt");
+
+  }
+  public static void quickRunTest(String listFileName, int numRuns, String outputFileName) {
     Timer timer = new Timer();
+    Quicksort quick = new Quicksort();
+    for (int i = 0; i < numRuns; ++i) {
+      List test = new List(0);
+      test.loadList(listFileName);
+      timer.start();
+      quick.sort(test, 0, test.getSize());
+      timer.stop();
+      timer.saveTime(outputFileName);
+    }
+  }
 
+  public static void quickInsertRunTest(String listFileName, int numRuns, String outputFileName) {
+    QuickInsert insert = new QuickInsert();
+    Timer timer = new Timer();
+    for (int i = 0; i < numRuns; ++i) {
+      List test = new List(0);
+      test.loadList(listFileName);
+      timer.start();
+      insert.sort(test, 0, test.getSize());
+      timer.stop();
+      timer.saveTime(outputFileName);
+    }
+  }
+  public static void dualRunTest(String listFileName, int numRuns, String outputFileName) {
+    Timer timer = new Timer();
+    Quick3 dualPivot = new Quick3();
+    for (int i = 0; i < numRuns; ++i) {
+      List test = new List(0);
+      test.loadList(listFileName);
+      timer.start();
+      dualPivot.sort(test, 0, test.getSize());
+      timer.stop();
+      timer.saveTime(outputFileName);
+    }
+  }
 
-    List almost2 = new List(listSize);
-    almost2.almostSort2();
-    almost2.display();
-
+  public static void dualInsertRunTest(String listFileName, int numRuns, String outputFileName) {
+    Timer timer = new Timer();
+    Quick3Insert dualInsert = new Quick3Insert();
+    for (int i = 0; i < numRuns; ++i) {
+      List test = new List(0);
+      test.loadList(listFileName);
+      timer.start();
+      dualInsert.sort(test, 0, test.getSize());
+      timer.stop();
+      timer.saveTime(outputFileName);
+    }
+  }
+    //List almost2 = new List(listSize);
+    //almost2.almostSort2();
+   // almost2.display();
 /*
     // Backwards list sorted with regular quicksort
     List backList = new List(listSize);
@@ -83,7 +128,6 @@ public class Main {
     testList.display();
 
     Integer[] myArray = testList.convertToArray();
-*/
 /*
     List randomList = new List(listSize);
     randomList.randomList();
@@ -96,4 +140,3 @@ public class Main {
     */
 
   }
-}

@@ -1,8 +1,11 @@
+import java.util.Random;
 public abstract class QuickAbstract {
-
+   private Random rand;
   // Used by QuickInsert, Quicksort
   int partition(List list, int firstIndex, int lastIndex) {
-    int pivot = list.getVal(lastIndex);
+    int randomNum = rand.nextInt((lastIndex - firstIndex) + 1) + firstIndex;
+
+    int pivot = list.getVal(randomNum);
     int i = (firstIndex - 1);
 
     for (int j = firstIndex; j < lastIndex; ++j) {

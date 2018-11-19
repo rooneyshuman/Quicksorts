@@ -9,8 +9,5 @@
         <module name="Quicksorts" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Quicksorts" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

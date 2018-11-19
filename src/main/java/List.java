@@ -10,6 +10,10 @@ public class List {
     theList = new ArrayList<>();
   }
 
+  int getSize(){
+    return this.size;   //TODO: need to check that the functions aren't expecting this to be +1'
+  }
+
   int getVal(int index) {
     return theList.get(index);
   }
