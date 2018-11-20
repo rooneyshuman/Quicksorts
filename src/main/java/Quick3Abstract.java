@@ -33,10 +33,4 @@ public abstract class Quick3Abstract extends QuickAbstract {
     sort(list, greaterTerm + 1, hp);
   }
 
-  // Used by Quick3 and Quick3Insert
-  public void swap(List list, int i, int j) {
-    int temp = list.getVal(i);
-    list.setVal(i, list.getVal(j));
-    list.setVal(j, temp);
-  }
 }

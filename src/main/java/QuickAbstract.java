@@ -1,22 +1,30 @@
-public abstract class QuickAbstract {
+import java.util.Random;
 
-  // Used by QuickInsert, Quicksort
+public abstract class QuickAbstract {
+  private Random rand;
+
+  QuickAbstract() {
+    rand = new Random();
+  }
+
   int partition(List list, int firstIndex, int lastIndex) {
+    int pivIndex = rand.nextInt((lastIndex - firstIndex) + 1) + firstIndex;
+
+    int temp = list.getVal(pivIndex);
+    list.setVal(pivIndex, list.getVal(lastIndex));
+    list.setVal(lastIndex, temp);
+
     int pivot = list.getVal(lastIndex);
     int i = (firstIndex - 1);
 
     for (int j = firstIndex; j < lastIndex; ++j) {
       if (list.getVal(j) <= pivot) {
         ++i;
-        int temp = list.getVal(i);
-        list.setVal(i, list.getVal(j));
-        list.setVal(j, temp);
+        swap(list, i, j);
       }
     }
 
-    int temp = list.getVal(i + 1);
-    list.setVal(i + 1, list.getVal(lastIndex));
-    list.setVal(lastIndex, temp);
+    swap(list, i + 1, lastIndex);
 
     return i + 1;
   }
@@ -32,6 +40,13 @@ public abstract class QuickAbstract {
       }
       list.setVal(j + 1, value);
     }
+  }
+
+  // Used by all derived classes
+  public void swap(List list, int i, int j) {
+    int temp = list.getVal(i);
+    list.setVal(i, list.getVal(j));
+    list.setVal(j, temp);
   }
 
   // Implemented by all derived classes
