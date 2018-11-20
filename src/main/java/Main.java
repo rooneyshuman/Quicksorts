@@ -12,7 +12,23 @@ public class Main {
     almost2.almostSort2();
     almost2.display();
 
+    //Random list sorted with random pivot Quicksort
+    List randomList = new List(listSize);
+    randomList.randomList();        //generate random list
+    System.out.println("Random List - Unsorted");
+    randomList.display();
+    timer.start();
+    quick.randomSort(randomList, 0, listSize - 1);
+    timer.stop();
+    System.out.println("Random List - Sorted with QuickInsert with Random Pivots");
+    randomList.display();
+    System.out.print("Sorting time: ");
+    System.out.println(timer.totalTime);
+    System.out.println();
+    timer.saveTime("randomListQuickInsert.txt");
+
 /*
+
     // Backwards list sorted with regular quicksort
     List backList = new List(listSize);
     backList.backwardsList();         //generate backwards list
@@ -27,7 +43,7 @@ public class Main {
     System.out.println(timer.totalTime);
     System.out.println();
     timer.saveTime("backListQuick.txt");
-
+/*
     // Random list sorted with quickInsert
     List randomList = new List(listSize);
     randomList.randomList();        //generate random list
@@ -90,8 +106,8 @@ public class Main {
     List almostList = new List(listSize);
     almostList.almostSort(4);
     almostList.display();
+*/
 
-    */
 
   }
 }
