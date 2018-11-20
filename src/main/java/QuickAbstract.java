@@ -4,24 +4,33 @@ public abstract class QuickAbstract {
   // Used by QuickInsert, Quicksort
   int partition(List list, int firstIndex, int lastIndex) {
     int randomNum = rand.nextInt((lastIndex-firstIndex) + 1) + firstIndex;
+    //int randomNum = lastIndex;
+    int temp = list.getVal(lastIndex);
+    list.setVal(lastIndex, list.getVal(randomNum));
+    list.setVal(randomNum, temp);
+
+    randomNum = lastIndex;
 
     int pivot = list.getVal(randomNum);
-    int i = (firstIndex - 1);
+    int i = firstIndex -1;
 
     for (int j = firstIndex; j < lastIndex; ++j) {
-      if (list.getVal(j) <= pivot) {
-        ++i;
-        int temp = list.getVal(i);
-        list.setVal(i, list.getVal(j));
-        list.setVal(j, temp);
+      if (list.getVal(j) < pivot) {
+        if(i != j) {
+          i++;
+          temp = list.getVal(i);
+          list.setVal(i, list.getVal(j));
+          list.setVal(j, temp);
+        }
       }
     }
 
-    int temp = list.getVal(i + 1);
-    list.setVal(i + 1, list.getVal(lastIndex));
-    list.setVal(lastIndex, temp);
+    i++;
+    temp = list.getVal(i);
+    list.setVal(i, list.getVal(randomNum));
+    list.setVal(randomNum, temp);
 
-    return i + 1;
+    return i;
   }
 
   // Used by Quick3Insert and QuickInsert

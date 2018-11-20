@@ -8,6 +8,12 @@ public abstract class Quick3Abstract extends QuickAbstract {
       return;
     int randLow = rand.nextInt((highIndex - lowIndex) + 1)/2 + lowIndex;
     int randHigh = rand.nextInt((highIndex - lowIndex) + 1)/2 + (highIndex-lowIndex)/2 + lowIndex; // TODO:This is most likely a mess..
+
+    swap(list, randLow, lowIndex);
+    swap(list, randHigh, highIndex);
+
+    randLow = lowIndex;
+    randHigh = highIndex;
     int lowPivot = list.getVal(randLow);
     int highPivot = list.getVal(randHigh);
 

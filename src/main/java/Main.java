@@ -1,12 +1,17 @@
 
 public class Main {
   public static void main(String[] args) {
-
+    Timer timer = new Timer();
+    Quicksort quick = new Quicksort();
+    QuickInsert insert = new QuickInsert();
+    Quick3 dualPivot = new Quick3();
+    Quick3Insert dualInser = new Quick3Insert();
     int listSize = 1000;
     // Name output: listType_listSize_sortType.txt
-    quickRunTest(listSize,"random_1k.data", 1000, "random_1k_quick.txt");
+    //  dualRunTest(listSize,"almostSort1_1m.data", 1000, "almostSort1_1m_quick3.txt");
 
-  }
+ // }
+/*
   public static void quickRunTest(int size, String listFileName, int numRuns, String outputFileName) {
     Timer timer = new Timer();
     Quicksort quick = new Quicksort();
@@ -14,54 +19,54 @@ public class Main {
       List test = new List(size);
       test.loadList(listFileName);
       timer.start();
-      quick.sort(test, 0, size -1);
+      quick.sort(test, 0, size - 1);
       timer.stop();
       timer.saveTime(outputFileName);
     }
-  }
+    //}
 
-  public static void quickInsertRunTest(int size, String listFileName, int numRuns, String outputFileName) {
-    QuickInsert insert = new QuickInsert();
-    Timer timer = new Timer();
-    for (int i = 0; i < numRuns; ++i) {
-      List test = new List(0);
-      test.loadList(listFileName);
-      timer.start();
-      insert.sort(test, 0, size);
-      timer.stop();
-      timer.saveTime(outputFileName);
+    public static void quickInsertRunTest ( int size, String listFileName,int numRuns, String outputFileName){
+      QuickInsert insert = new QuickInsert();
+      Timer timer = new Timer();
+      for (int i = 0; i < numRuns; ++i) {
+        List test = new List(0);
+        test.loadList(listFileName);
+        timer.start();
+        insert.sort(test, 0, size - 1);
+        timer.stop();
+        timer.saveTime(outputFileName);
+      }
     }
-  }
-  public static void dualRunTest(int size, String listFileName, int numRuns, String outputFileName) {
-    Timer timer = new Timer();
-    Quick3 dualPivot = new Quick3();
-    for (int i = 0; i < numRuns; ++i) {
-      List test = new List(0);
-      test.loadList(listFileName);
-      timer.start();
-      dualPivot.sort(test, 0, size);
-      timer.stop();
-      timer.saveTime(outputFileName);
+    public static void dualRunTest ( int size, String listFileName,int numRuns, String outputFileName){
+      Timer timer = new Timer();
+      Quick3 dualPivot = new Quick3();
+      for (int i = 0; i < numRuns; ++i) {
+        List test = new List(0);
+        test.loadList(listFileName);
+        timer.start();
+        dualPivot.sort(test, 0, size - 1);
+        timer.stop();
+        timer.saveTime(outputFileName);
+      }
     }
-  }
 
-  public static void dualInsertRunTest(int size, String listFileName, int numRuns, String outputFileName) {
-    Timer timer = new Timer();
-    Quick3Insert dualInsert = new Quick3Insert();
-    for (int i = 0; i < numRuns; ++i) {
-      List test = new List(0);
-      test.loadList(listFileName);
-      timer.start();
-      dualInsert.sort(test, 0, size);
-      timer.stop();
-      timer.saveTime(outputFileName);
+    public static void dualInsertRunTest ( int size, String listFileName,int numRuns, String outputFileName){
+      Timer timer = new Timer();
+      Quick3Insert dualInsert = new Quick3Insert();
+      for (int i = 0; i < numRuns; ++i) {
+        List test = new List(0);
+        test.loadList(listFileName);
+        timer.start();
+        dualInsert.sort(test, 0, size - 1);
+        timer.stop();
+        timer.saveTime(outputFileName);
+      }
     }
-  }
-    //List almost2 = new List(listSize);
-    //almost2.almostSort2();
-   // almost2.display();
-/*
-    // Backwards list sorted with regular quicksort
+    */
+    List almost2 = new List(listSize);
+    almost2.almostSort2();
+    almost2.display();
+    //  Backwards list sorted with regular quicksort
     List backList = new List(listSize);
     backList.backwardsList();         //generate backwards list
     System.out.println("Backwards List - Unsorted");
@@ -122,6 +127,22 @@ public class Main {
     System.out.println();
     timer.saveTime("backListDualPivot.txt");
 
+    //Backwards list sorted with dual pivot quicksort
+    List backList3 = new List(listSize);
+    backList3.backwardsList();         //generate backwards list
+    System.out.println("Backwards List - Unsorted");
+    backList3.display();
+    timer.start();
+    dualInser.sort(backList3, 0, backList3.getSize() - 1);
+    timer.stop();
+    System.out.println("Backwards List - Sorted with dualInsert Pivot");
+    backList3.display();
+    System.out.print("Sorting time: ");
+    System.out.println(timer.totalTime);
+    System.out.println();
+    timer.saveTime("backListDualInsertPivot.txt");
+
+
     backList.saveList("backwardsArray.data");
 
     List testList = new List(listSize);
@@ -130,6 +151,8 @@ public class Main {
     testList.display();
 
     Integer[] myArray = testList.convertToArray();
+  }
+}
 /*
     List randomList = new List(listSize);
     randomList.randomList();
@@ -141,4 +164,3 @@ public class Main {
 
     */
 
-  }
