@@ -35,7 +35,6 @@ public class List {
     Collections.shuffle(theList);
   }
 
-  //This will not fill the list to the exact size of the list but to sizeParts *n < sizeList  TODO: Can be changed
   void almostSort1(int sizeParts) {
     int whereAt = 1;
 
