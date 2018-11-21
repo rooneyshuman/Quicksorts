@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public abstract class QuickAbstract {
-  private Random rand;
+  protected Random rand;
 
   QuickAbstract() {
     rand = new Random();
