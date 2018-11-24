@@ -11,7 +11,19 @@ public class Main {
     int size;
 
     System.out.println("\n ----  TESTING INTERFACE ---- \n");
-    while (again) {
+
+    //Test millions
+    for (int i = 1; i < 5; ++i) {
+      for (int j = 1; j< 5; ++j) {
+        sort = i;
+        list = j;
+        size = 1000000;
+
+        run(sort, list, size);
+      }
+    }
+
+   /* while (again) {
 
       sort = sortMenu();
       list = listMenu();
@@ -22,8 +34,8 @@ public class Main {
       System.out.println("Again? y/n");
       if (sc.next().equalsIgnoreCase("n"))
         again = false;
+        */
     }
-  }
 
   private static int sortMenu() {
     System.out.println("1. Quicksort");

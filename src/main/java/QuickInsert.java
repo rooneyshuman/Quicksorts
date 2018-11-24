@@ -6,7 +6,7 @@ public class QuickInsert extends QuickAbstract {
 
   public void sort(List list, int firstIndex, int lastIndex) {
     if (firstIndex < lastIndex) {
-      if ((lastIndex - firstIndex) < 5) {
+      if ((lastIndex - firstIndex) < 20) {
         insertionSort(list, firstIndex, lastIndex + 1);    // Run insertion
       } else {
         int partIndex = partition(list, firstIndex, lastIndex);
